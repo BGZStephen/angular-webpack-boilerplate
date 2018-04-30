@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [],
   imports: [],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [],
   entryComponents: []
 })
 export class AppModule { }
