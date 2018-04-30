@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "start": "webpack --config webpack.config.js"
+  },
+  "devDependencies": {
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.1.2"
+  },
+  "dependencies": {
+    "@angular/animations": "^5.2.10",
+    "@angular/common": "^5.2.10",
+    "@angular/core": "^5.2.10",
+    "@angular/forms": "^5.2.10",
+    "@angular/http": "^5.2.10",
+    "@angular/language-service": "^5.2.10",
+    "@angular/platform-browser": "^5.2.10",
+    "@angular/platform-browser-dynamic": "^5.2.10",
+    "@angular/router": "^5.2.10",
+    "rxjs": "^6.0.0",
+    "typescript": "^2.8.3",
+    "zone.js": "^0.8.26"
+  }
+}
