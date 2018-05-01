@@ -1,15 +1,25 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 const ENV = process.env.NODE_ENV || 'development'
 
 module.exports = {
-  mode: ENV === 'development' ? 'development' : 'production',
+  mode: ENV === 'production' ? 'production' : 'development',
   entry: './src/main.ts',
   resolve: {
     // Add `.ts` and `.tsx` as a resolvable extension.
     extensions: [".ts", ".tsx", ".js"]
+  },
+  stats: {
+    warnings: false
+  },
+  devServer : {
+    stats: {
+      warnings: false
+    },
+    quiet: true,
   },
   module: {
     rules: [
@@ -33,6 +43,15 @@ module.exports = {
         use: [
           'file-loader'
         ]
+      },
+      {
+        test: /\.(html)$/,
+        use: {
+          loader: 'html-loader',
+          options: {
+            attrs: [':data-src']
+          }
+        }
       }
     ]
   },
@@ -41,7 +60,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       inject: 'body'
-    })
+    }),
+    new ProgressBarPlugin()
   ],
   output: {
     filename: 'bundle.js',
